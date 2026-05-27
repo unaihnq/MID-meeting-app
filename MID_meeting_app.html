@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>MID Meeting App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MID Meeting App - 최적의 미팅 장소를 찾아보세요">
+  <meta name="theme-color" content="#007bff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="MID Meeting">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="icon" type="image/png" href="icon-192.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- 헤더 -->
+    <header class="app-header">
+      <div class="header-content">
+        <h1>📍 MID Meeting</h1>
+        <button id="installBtn" class="install-btn" style="display:none;">
+          <span>설치</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- 메인 콘텐츠 -->
+    <main class="app-main">
+      <!-- 검색 섹션 -->
+      <section class="search-section">
+        <div class="search-box">
+          <input 
+            type="text" 
+            id="searchInput" 
+            placeholder="검색어를 입력하세요 (예: 카페, 레스토랑)"
+            class="search-input"
+          >
+          <button id="searchBtn" class="search-btn">🔍 검색</button>
+        </div>
+        <button id="locationBtn" class="location-btn">📌 현재위치</button>
+      </section>
+
+      <!-- 지도 -->
+      <section class="map-section">
+        <div id="map" class="map-container"></div>
+      </section>
+
+      <!-- 장소 목록 -->
+      <section class="places-section">
+        <div class="section-header">
+          <h2>검색 결과</h2>
+          <span id="resultCount" class="result-count">0개</span>
+        </div>
+        <div id="placesList" class="places-list">
+          <div class="empty-state">
+            <p>검색 결과가 없습니다</p>
+            <p class="hint">위의 검색 버튼을 클릭하거나<br>현재위치 버튼으로 주변 장소를 찾아보세요</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- 로딩 표시 -->
+    <div id="loadingSpinner" class="loading-spinner" style="display:none;">
+      <div class="spinner"></div>
+    </div>
+
+    <!-- 알림 -->
+    <div id="notification" class="notification" style="display:none;"></div>
+  </div>
+
+  <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=68f309e7b5ce4820c2b66dc4f7c48d3e&libraries=services"></script>
+  <script src="app.js"></script>
+</body>
+</html>
